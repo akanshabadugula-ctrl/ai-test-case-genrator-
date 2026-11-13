@@ -1,0 +1,18 @@
+{
+  "name": "testpilot-ai",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --workspace server run dev",
+    "dev:client": "npm --workspace client run dev",
+    "build": "npm --workspace server run build && npm --workspace client run build",
+    "test": "npm --workspace server test && npm --workspace client test",
+    "test:server": "npm --workspace server test",
+    "test:client": "npm --workspace client test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
